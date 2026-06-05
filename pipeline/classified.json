@@ -9976,5 +9976,287 @@
     "step_reached": 2,
     "cause": "Молчание",
     "cause_confidence": 0.85
+  },
+  {
+    "id": 1733,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 1872,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 1898,
+    "step_reached": 1,
+    "cause": "Явный отказ",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": 1903,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2026,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2029,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2081,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2086,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2104,
+    "step_reached": 1,
+    "cause": "Явный отказ",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": 2134,
+    "step_reached": 1,
+    "cause": "Явный отказ",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": 2136,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2143,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2144,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2145,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2148,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2151,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2154,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2168,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2173,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2182,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2216,
+    "step_reached": 1,
+    "cause": "Молчание",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": 2217,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2218,
+    "step_reached": 1,
+    "cause": "Другое",
+    "cause_confidence": 0.85
+  },
+  {
+    "id": 2220,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2221,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2239,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2251,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2264,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2293,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2319,
+    "step_reached": 1,
+    "cause": "Явный отказ",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": 2337,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2358,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2359,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2384,
+    "step_reached": 1,
+    "cause": "Явный отказ",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": 2385,
+    "step_reached": 1,
+    "cause": "Другое",
+    "cause_confidence": 0.85
+  },
+  {
+    "id": 2416,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2420,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2464,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2473,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2483,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2491,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2502,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2531,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2662,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2727,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 2954,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
+  },
+  {
+    "id": 3101,
+    "step_reached": 2,
+    "cause": "Другое",
+    "cause_confidence": 0.8
   }
 ]

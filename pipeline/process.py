@@ -76,9 +76,11 @@ def load_df():
     df['user_reply_count'] = df['dialog'].apply(count_user_replies)
     df['script_variant'] = df['dialog'].apply(detect_variant)
 
-    # Стадия 2 по тексту: бот произнёс питч (назвал компанию)
+    # Стадия 2 по тексту: бот произнёс полный питч
+    # "батамин" в прощании не считается — нужен именно питч "запускаем ИИ-продавца"
     df['has_pitch'] = df['dialog'].astype(str).str.contains(
-        'батамин|ботамин', case=False, na=False
+        'запускаем ИИ-продавца|запускаем ии-продавца|первую линию продаж',
+        case=False, na=False
     )
 
     # Стадии воронки (текстовые правила)
