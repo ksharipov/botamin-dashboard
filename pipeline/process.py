@@ -389,7 +389,7 @@ def mask_phone(phone):
     digits = re.sub(r'\D', '', str(phone))
     if len(digits) < 7:
         return '***'
-    masked = digits[:3] + '*' * (len(digits) - 7) + digits[-4:]
+    masked = digits[:4] + '*' * (len(digits) - 8) + digits[-4:]
     return masked
 
 
