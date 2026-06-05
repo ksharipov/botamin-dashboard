@@ -65,9 +65,15 @@ export default function RecoBlock({ recommendations }) {
           {recommendations.length} гипотез
         </span>
       </div>
-      <p className="text-xs text-gray-400 mb-4">
-        Автоматически сгенерированы на основе данных. Каждая гипотеза — это конкретный A/Б-тест.
-      </p>
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-4">
+        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Контекст</p>
+        <p className="text-sm text-navy leading-relaxed">
+          Воронка находится на этапе <strong>Acquisition</strong>. Конверсия в неквалифицированного лида (встреча) — <strong>0.3%</strong>, в квалифицированного — <strong>0.1%</strong>. Целевой показатель: 2–3%, то есть в 10× выше.
+        </p>
+        <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+          При этом звонки совершаются без участия человека — 35 встреч за неделю при нулевых трудозатратах на созвоны не так плохо. Все гипотезы ниже направлены на рост конверсии Acquisition.
+        </p>
+      </div>
       <div className="space-y-3">
         {recommendations.map((reco, i) => (
           <RecoCard key={i} reco={reco} index={i} />

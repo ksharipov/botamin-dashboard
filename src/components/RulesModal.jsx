@@ -2,17 +2,16 @@ import React, { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-export default function GuideModal({ onClose }) {
+export default function RulesModal({ onClose }) {
   const [content, setContent] = useState('')
 
   useEffect(() => {
-    fetch('/GUIDE.md')
+    fetch('/RULES.md')
       .then(r => r.text())
       .then(setContent)
-      .catch(() => setContent('Не удалось загрузить инструкцию.'))
+      .catch(() => setContent('Не удалось загрузить документ.'))
   }, [])
 
-  // Close on Escape
   useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', handler)
@@ -29,7 +28,7 @@ export default function GuideModal({ onClose }) {
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between p-5 border-b border-gray-100">
-          <h2 className="text-lg font-semibold text-navy">Инструкция аналитика</h2>
+          <h2 className="text-lg font-semibold text-navy">Алгоритм классификации</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 text-2xl leading-none w-9 h-9 flex items-center justify-center rounded-lg hover:bg-gray-100"
@@ -43,9 +42,11 @@ export default function GuideModal({ onClose }) {
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ children }) => <h1 className="text-xl font-bold text-navy mb-4">{children}</h1>,
-              h2: ({ children }) => <h2 className="text-base font-semibold text-navy mt-6 mb-2 flex items-center gap-2">{children}</h2>,
+              h2: ({ children }) => <h2 className="text-base font-semibold text-navy mt-6 mb-2">{children}</h2>,
+              h3: ({ children }) => <h3 className="text-sm font-semibold text-navy mt-4 mb-1">{children}</h3>,
               p: ({ children }) => <p className="text-sm text-gray-700 mb-2 leading-relaxed">{children}</p>,
               ul: ({ children }) => <ul className="list-disc list-inside space-y-1 mb-3 text-sm text-gray-700">{children}</ul>,
+              ol: ({ children }) => <ol className="list-decimal list-inside space-y-1 mb-3 text-sm text-gray-700">{children}</ol>,
               li: ({ children }) => <li className="text-sm text-gray-700">{children}</li>,
               hr: () => <hr className="border-gray-200 my-4" />,
               table: ({ children }) => (
@@ -60,6 +61,7 @@ export default function GuideModal({ onClose }) {
                 <blockquote className="border-l-4 border-purple pl-4 my-3 text-gray-600 italic">{children}</blockquote>
               ),
               code: ({ children }) => <code className="bg-gray-100 rounded px-1 py-0.5 text-xs font-mono">{children}</code>,
+              pre: ({ children }) => <pre className="bg-gray-50 rounded-lg p-3 mb-3 overflow-x-auto text-xs font-mono">{children}</pre>,
             }}
           >
             {content}

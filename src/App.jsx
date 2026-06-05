@@ -5,6 +5,7 @@ import DrillDown from './components/DrillDown.jsx'
 import ABTestBlock from './components/ABTestBlock.jsx'
 import RecoBlock from './components/RecoBlock.jsx'
 import GuideModal from './components/GuideModal.jsx'
+import RulesModal from './components/RulesModal.jsx'
 
 export default function App() {
   const [data, setData] = useState(null)
@@ -26,6 +27,7 @@ export default function App() {
 
   // Guide modal
   const [guideOpen, setGuideOpen] = useState(false)
+  const [rulesOpen, setRulesOpen] = useState(false)
 
   useEffect(() => {
     fetch('/data.json')
@@ -89,12 +91,20 @@ export default function App() {
             </span>
           </div>
         </div>
-        <button
-          onClick={() => setGuideOpen(true)}
-          className="text-sm text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 px-4 py-1.5 rounded-lg transition-colors"
-        >
-          Инструкция
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => setRulesOpen(true)}
+            className="text-sm text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 px-4 py-1.5 rounded-lg transition-colors"
+          >
+            Алгоритм
+          </button>
+          <button
+            onClick={() => setGuideOpen(true)}
+            className="text-sm text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 px-4 py-1.5 rounded-lg transition-colors"
+          >
+            Инструкция
+          </button>
+        </div>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6 space-y-6">
@@ -142,6 +152,7 @@ export default function App() {
 
       {/* Guide Modal */}
       {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} />}
+      {rulesOpen && <RulesModal onClose={() => setRulesOpen(false)} />}
     </div>
   )
 }

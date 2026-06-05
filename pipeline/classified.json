@@ -10258,5 +10258,29 @@
     "step_reached": 2,
     "cause": "Другое",
     "cause_confidence": 0.8
+  },
+  {
+    "id": "2212",
+    "step_reached": 1,
+    "cause": "Нецелевой клиент",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": "2348",
+    "step_reached": 1,
+    "cause": "Занят / неудобно",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": "3343",
+    "step_reached": 1,
+    "cause": "Занят / неудобно",
+    "cause_confidence": 0.9
+  },
+  {
+    "id": "3398",
+    "step_reached": 1,
+    "cause": "Явный отказ",
+    "cause_confidence": 0.95
   }
 ]

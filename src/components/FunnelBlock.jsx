@@ -81,13 +81,17 @@ function FunnelBySteps({ steps, onSelectStep, selectedStep }) {
   )
 }
 
-function FunnelByCauses({ causesTotal, onSelectCause, selectedCause }) {
+const STEP_SHORT = { 1: 'Согл.', 2: 'Оффер', 3: 'Встр.', 4: 'Квал.' }
+
+function FunnelByCauses({ causesTotal, funnelSteps, onSelectCause, selectedCause }) {
   if (!causesTotal || causesTotal.length === 0) {
     return <p className="text-sm text-gray-400">Данные по причинам отсутствуют</p>
   }
 
   const steps = ['s1', 's2', 's3', 's4']
-  const stepLabels = ['Ш1', 'Ш2', 'Ш3', 'Ш4']
+  const stepLabels = funnelSteps
+    ? funnelSteps.filter(s => s.step >= 1).map(s => STEP_SHORT[s.step] || `Ш${s.step}`)
+    : ['Согл.', 'Оффер', 'Встр.', 'Квал.']
 
   return (
     <div className="overflow-x-auto">
@@ -125,7 +129,7 @@ function FunnelByCauses({ causesTotal, onSelectCause, selectedCause }) {
         </tbody>
       </table>
       <p className="text-xs text-gray-400 mt-2">
-        Ш1-Ш4 — доля этой причины среди всех звонков на данном шаге. Клик на строку — детальный разбор.
+        Доля этой причины среди всех звонков на каждом шаге. Клик на строку — детальный разбор.
       </p>
     </div>
   )
@@ -165,6 +169,7 @@ export default function FunnelBlock({
       {mode === 'causes' && (
         <FunnelByCauses
           causesTotal={causesTotal}
+          funnelSteps={funnelSteps}
           onSelectCause={onSelectCause}
           selectedCause={selectedCause}
         />
