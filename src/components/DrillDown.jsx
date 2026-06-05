@@ -244,7 +244,7 @@ function DialogModal({ call, onClose }) {
 
         {/* Footer */}
         <div className="p-4 border-t border-gray-100 flex items-center justify-between gap-3">
-          {call.audio_url ? (
+          {call.audio_url && /^https:\/\//.test(call.audio_url) ? (
             <audio controls className="flex-1 h-8" src={call.audio_url}>
               Ваш браузер не поддерживает аудио
             </audio>

@@ -2,10 +2,11 @@ import pandas as pd
 import json
 import re
 import math
+import os, sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
-XLSX_PATH = r"C:\Users\Boss\AppData\Local\Temp\Copy of calls_week_anon.xlsx"
+XLSX_PATH = os.getenv('XLSX_PATH') or (sys.argv[1] if len(sys.argv) > 1 else 'calls.xlsx')
 OUT_DIR = Path(__file__).parent
 CLASSIFIED_PATH = OUT_DIR / "classified.json"
 DATA_JSON_PATH = Path(__file__).parent.parent / "public" / "data.json"
@@ -384,12 +385,21 @@ def compute_recommendations(df, funnel_steps, ab_tests):
     return recs
 
 
+def mask_phone(phone):
+    digits = re.sub(r'\D', '', str(phone))
+    if len(digits) < 7:
+        return '***'
+    masked = digits[:3] + '*' * (len(digits) - 7) + digits[-4:]
+    return masked
+
+
 def build_calls(df, max_calls=2000):
     sub = df[~df['is_empty'] & ~df['is_tech']].head(max_calls)
     records = []
     for _, row in sub.iterrows():
         records.append({
             'id': str(row['id']),
+            'phone': mask_phone(row['phone']) if not pd.isna(row['phone']) else '***',
             'date': str(row['date']) if row['date'] else '',
             'hour': int(row['hour']) if row['hour'] is not None else None,
             'duration_sec': int(row['duration_sec']),
