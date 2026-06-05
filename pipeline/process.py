@@ -155,19 +155,27 @@ def compute_funnel(df):
     steps.append({
         'step': 0,
         'name': 'Обзвон',
+        'description': 'Бот совершил звонок',
         'count': total,
         'from_start': 1.0,
         'from_prev': None
     })
     prev_count = total
+    names = {1: 'Согласие', 2: 'Оффер', 3: 'Встреча', 4: 'Квалификация'}
+    descriptions = {
+        1: 'Клиент ответил и дал боту говорить',
+        2: 'Бот рассказал о продукте — клиент услышал суть',
+        3: 'Клиент согласился на встречу с экспертом, назначено время',
+        4: 'Клиент сообщил объём своих заявок',
+    }
     for step in [1, 2, 3, 4]:
-        names = {1: 'Согласие', 2: 'Оффер', 3: 'Встреча', 4: 'Квалификация'}
         count = len(df[df['step_reached'] >= step])
         from_start = round(count / total, 4) if total else 0
         from_prev = round(count / prev_count, 4) if prev_count else 0
         steps.append({
             'step': step,
             'name': names[step],
+            'description': descriptions[step],
             'count': count,
             'from_start': from_start,
             'from_prev': from_prev

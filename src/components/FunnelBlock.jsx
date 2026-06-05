@@ -38,11 +38,14 @@ function FunnelBySteps({ steps, onSelectStep, selectedStep }) {
             onClick={() => onSelectStep(s.step)}
           >
             {/* Step label */}
-            <div className="w-36 shrink-0">
+            <div className="w-48 shrink-0">
               <div className="flex items-center gap-1.5">
                 {isWorst && <span className="text-red-500 text-xs font-bold">▼</span>}
                 <span className="text-sm font-medium text-navy">{s.step}. {s.name}</span>
               </div>
+              {s.description && (
+                <div className="text-xs text-gray-400 mt-0.5 leading-tight">{s.description}</div>
+              )}
             </div>
 
             {/* Bar */}
