@@ -151,6 +151,14 @@ def compute_health(df):
 def compute_funnel(df):
     total = len(df)
     steps = []
+    # Шаг 0 — все звонки (верхняя строка воронки)
+    steps.append({
+        'step': 0,
+        'name': 'Обзвон',
+        'count': total,
+        'from_start': 1.0,
+        'from_prev': None
+    })
     prev_count = total
     for step in [1, 2, 3, 4]:
         names = {1: 'Согласие', 2: 'Оффер', 3: 'Встреча', 4: 'Квалификация'}
@@ -162,7 +170,7 @@ def compute_funnel(df):
             'name': names[step],
             'count': count,
             'from_start': from_start,
-            'from_prev': from_prev if step > 1 else None
+            'from_prev': from_prev
         })
         prev_count = count
     return steps
@@ -175,6 +183,13 @@ def compute_funnel_by_day(df):
         total = len(sub)
         day_steps = []
         prev = total
+        # Шаг 0 — все звонки за день
+        day_steps.append({
+            'step': 0,
+            'count': total,
+            'from_start': 1.0,
+            'from_prev': None
+        })
         for step in [1, 2, 3, 4]:
             count = len(sub[sub['step_reached'] >= step])
             from_prev = round(count / prev, 4) if prev else 0
@@ -183,7 +198,7 @@ def compute_funnel_by_day(df):
                 'step': step,
                 'count': count,
                 'from_start': from_start,
-                'from_prev': from_prev if step > 1 else None
+                'from_prev': from_prev
             })
             prev = count
         result.append({'date': date, 'steps': day_steps})

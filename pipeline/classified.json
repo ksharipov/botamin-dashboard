@@ -79,8 +79,8 @@
   },
   {
     "id": 13,
-    "step_reached": 2,
-    "cause": "Нецелевой клиент",
+    "step_reached": 4,
+    "cause": null,
     "cause_confidence": 0.72
   },
   {
@@ -109,9 +109,9 @@
   },
   {
     "id": 20,
-    "step_reached": 1,
-    "cause": "Нецелевой клиент",
-    "cause_confidence": 0.65
+    "step_reached": 4,
+    "cause": null,
+    "cause_confidence": null
   },
   {
     "id": 21,
@@ -121,8 +121,8 @@
   },
   {
     "id": 22,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.9
   },
   {
@@ -163,20 +163,20 @@
   },
   {
     "id": 29,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
     "id": 30,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.9
   },
   {
     "id": 31,
-    "step_reached": 2,
-    "cause": "Против ботов",
+    "step_reached": 3,
+    "cause": "Другое",
     "cause_confidence": 0.7
   },
   {
@@ -187,8 +187,8 @@
   },
   {
     "id": 33,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.88
   },
   {
@@ -205,26 +205,26 @@
   },
   {
     "id": 36,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
     "id": 37,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.78
   },
   {
     "id": 38,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.8
   },
   {
     "id": 39,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.88
   },
   {
@@ -235,8 +235,8 @@
   },
   {
     "id": 41,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.88
   },
   {
@@ -253,8 +253,8 @@
   },
   {
     "id": 44,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.9
   },
   {
@@ -265,56 +265,56 @@
   },
   {
     "id": 46,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
     "id": 47,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
     "id": 48,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
     "id": 49,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.88
   },
   {
     "id": 50,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Другое",
     "cause_confidence": 0.72
   },
   {
     "id": 51,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Другое",
     "cause_confidence": 0.88
   },
   {
     "id": 52,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.8
   },
   {
     "id": 53,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.8
   },
   {
     "id": 54,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.8
   },
   {
@@ -337,20 +337,20 @@
   },
   {
     "id": 58,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.78
   },
   {
     "id": 59,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.78
   },
   {
     "id": 60,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.75
   },
   {
@@ -367,14 +367,14 @@
   },
   {
     "id": 63,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.8
   },
   {
     "id": 64,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Другое",
     "cause_confidence": 0.8
   },
   {
@@ -409,14 +409,14 @@
   },
   {
     "id": 72,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.8
   },
   {
     "id": 73,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.78
   },
   {
@@ -451,14 +451,14 @@
   },
   {
     "id": 79,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
     "id": 80,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
@@ -487,8 +487,8 @@
   },
   {
     "id": 85,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
@@ -523,14 +523,14 @@
   },
   {
     "id": 91,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
     "id": 92,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.8
   },
   {
@@ -541,14 +541,14 @@
   },
   {
     "id": 94,
-    "step_reached": 2,
+    "step_reached": 3,
     "cause": "Против ботов",
     "cause_confidence": 0.8
   },
   {
     "id": 95,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.9
   },
   {
@@ -571,14 +571,14 @@
   },
   {
     "id": 100,
-    "step_reached": 2,
+    "step_reached": 3,
     "cause": "Занят / неудобно",
     "cause_confidence": 0.65
   },
   {
     "id": 101,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.88
   },
   {
@@ -709,8 +709,8 @@
   },
   {
     "id": 123,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.78
   },
   {
@@ -769,8 +769,8 @@
   },
   {
     "id": 134,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.82
   },
   {
@@ -781,7 +781,7 @@
   },
   {
     "id": 136,
-    "step_reached": 2,
+    "step_reached": 3,
     "cause": "Занят / неудобно",
     "cause_confidence": 0.75
   },
@@ -817,8 +817,8 @@
   },
   {
     "id": 142,
-    "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "step_reached": 2,
+    "cause": "Занят / неудобно",
     "cause_confidence": 0.72
   },
   {
@@ -2180,7 +2180,7 @@
   {
     "id": 391,
     "step_reached": 1,
-    "cause": "Автоответчик / бот",
+    "cause": "Другое",
     "cause_confidence": 0.78
   },
   {
@@ -3457,7 +3457,7 @@
   },
   {
     "id": 610,
-    "step_reached": 2,
+    "step_reached": 1,
     "cause": "Молчание",
     "cause_confidence": 0.75
   },
