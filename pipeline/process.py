@@ -76,18 +76,22 @@ def load_df():
     df['user_reply_count'] = df['dialog'].apply(count_user_replies)
     df['script_variant'] = df['dialog'].apply(detect_variant)
 
-    # Что нужно классифицировать LLM
-    df['needs_llm'] = (
-        (df['duration_sec'] >= 30) &
-        ~df['is_empty'] &
-        ~df['is_tech'] &
-        ~df['no_user']
+    # Стадия 2 по тексту: бот произнёс питч (назвал компанию)
+    df['has_pitch'] = df['dialog'].astype(str).str.contains(
+        'батамин|ботамин', case=False, na=False
     )
 
-    # Правило для коротких/без-диалога звонков
+    # Стадии воронки (текстовые правила)
     df['step_reached'] = 0
-    df.loc[~df['no_user'] & (df['duration_sec'] < 30), 'step_reached'] = 1
-    df.loc[df['no_user'] & ~df['is_empty'] & ~df['is_tech'], 'step_reached'] = 1
+    df.loc[~df['no_user'] & ~df['is_tech'], 'step_reached'] = 1   # клиент ответил
+    df.loc[df['has_pitch'] & ~df['is_tech'], 'step_reached'] = 2   # питч произнесён
+
+    # Для стадий 3/4 нужен LLM: только звонки где питч был
+    df['needs_llm'] = (
+        df['has_pitch'] &
+        ~df['is_tech'] &
+        ~df['is_empty']
+    )
 
     df['cause'] = None
     df['cause_confidence'] = None
@@ -104,6 +108,35 @@ def save_to_classify(df):
     return records
 
 
+def infer_cause_from_text(dialog):
+    """Определяет причину отвала по тексту для стадии 1 (без питча)."""
+    if pd.isna(dialog):
+        return 'Молчание'
+    text = str(dialog)
+    user_parts = re.findall(r'user:\s*(.+?)(?=\nbot:|$)', text, re.DOTALL)
+    user_parts = [p.strip() for p in user_parts if p.strip()]
+    meaningful = [p for p in user_parts if p != '...']
+    if not meaningful:
+        return 'Молчание'
+    u = ' '.join(meaningful).lower()
+
+    if any(w in u for w in ['нахуй', 'нахрен', 'блядь', 'пошёл', 'уебало', 'ёбаный']):
+        return 'Агрессия'
+    if any(w in u for w in ['живой человек', 'живого человека', 'соедините с человеком', 'вы живой', 'не робот']):
+        return 'Против ботов'
+    if any(w in u for w in ['говорите, я слушаю', 'слушаю вас внимательно', 'оставьте сообщение', 'перезвоните позже', 'недоступен']):
+        return 'Автоответчик / бот'
+    if any(w in u for w in ['уже есть', 'уже работаем', 'уже внедрили', 'уже пользуемся', 'уже используем']):
+        return 'Уже есть решение'
+    if any(w in u for w in ['не туда', 'номером ошиблись', 'нет отдела продаж', 'не занимаемся продажами']):
+        return 'Нецелевой клиент'
+    if any(w in u for w in ['занят', 'за рулём', 'за рулем', 'неудобно', 'перезвоните', 'перезвони', 'не могу сейчас', 'не до того']):
+        return 'Занят / неудобно'
+    if any(w in u for w in ['не нужно', 'не нужна', 'неинтересно', 'не интересует', 'не надо', 'не актуально']):
+        return 'Явный отказ'
+    return 'Другое'
+
+
 def merge_classified(df):
     if not CLASSIFIED_PATH.exists():
         print("classified.json не найден, пропускаем LLM-данные")
@@ -111,14 +144,27 @@ def merge_classified(df):
 
     with open(CLASSIFIED_PATH, encoding='utf-8') as f:
         classified = json.load(f)
-
     cl_map = {str(c['id']): c for c in classified}
-    for idx, row in df[df['needs_llm']].iterrows():
+
+    # Стадия 2+: питч произнесён → LLM определяет стадию 3/4 и причину
+    for idx, row in df[df['has_pitch'] & ~df['is_tech']].iterrows():
         c = cl_map.get(str(row['id']))
         if c:
-            df.at[idx, 'step_reached'] = c.get('step_reached', 1)
+            llm_step = c.get('step_reached', 2)
+            df.at[idx, 'step_reached'] = max(2, llm_step)
             df.at[idx, 'cause'] = c.get('cause')
             df.at[idx, 'cause_confidence'] = c.get('cause_confidence', 0.8)
+
+    # Стадия 1: клиент ответил, питча не было → LLM если есть, иначе текстовые правила
+    stage1_mask = ~df['has_pitch'] & ~df['no_user'] & ~df['is_tech']
+    for idx, row in df[stage1_mask].iterrows():
+        c = cl_map.get(str(row['id']))
+        if c:
+            df.at[idx, 'cause'] = c.get('cause')
+            df.at[idx, 'cause_confidence'] = c.get('cause_confidence', 0.8)
+        else:
+            df.at[idx, 'cause'] = infer_cause_from_text(row['dialog'])
+            df.at[idx, 'cause_confidence'] = 0.6
 
     return df
 
