@@ -144,25 +144,25 @@ export default function ABTestBlock({ abTests, selectedTest, setSelectedTest }) 
             <div key={i} className="border border-gray-100 rounded-xl overflow-hidden">
               {/* Test header row */}
               <button
-                className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+                className="w-full flex items-start sm:items-center justify-between px-3 sm:px-4 py-3 hover:bg-gray-50 transition-colors text-left gap-2"
                 onClick={() => setSelectedTest(isOpen ? null : i)}
               >
-                <div className="flex items-center gap-3">
-                  <span className="font-medium text-navy">{test.name}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 min-w-0">
+                  <span className="font-medium text-navy text-sm leading-tight">{test.name}</span>
                   {test.p_value < 0.05 ? (
-                    <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">
+                    <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium self-start">
                       ✓ Значимо
                     </span>
                   ) : (
-                    <span className="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-medium">
+                    <span className="text-xs bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full font-medium self-start">
                       ⏳ Мало данных
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 shrink-0">
                   {diff && (
-                    <span className="text-sm text-gray-500">
-                      Вариант {winner} {vb && vb.qualification > (va?.qualification || 0) ? '+' : '-'}{diff}%
+                    <span className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">
+                      Вар. {winner} {vb && vb.qualification > (va?.qualification || 0) ? '+' : '-'}{diff}%
                     </span>
                   )}
                   <span className="text-gray-400 text-sm">{isOpen ? '▲' : '▼'}</span>

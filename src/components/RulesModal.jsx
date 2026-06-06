@@ -27,8 +27,8 @@ export default function RulesModal({ onClose }) {
         className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col"
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between p-5 border-b border-gray-100">
-          <h2 className="text-lg font-semibold text-navy">Алгоритм классификации</h2>
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-gray-100">
+          <h2 className="text-base sm:text-lg font-semibold text-navy">Алгоритм классификации</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 text-2xl leading-none w-9 h-9 flex items-center justify-center rounded-lg hover:bg-gray-100"
@@ -37,7 +37,7 @@ export default function RulesModal({ onClose }) {
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-1 p-5 prose prose-sm max-w-none">
+        <div className="overflow-y-auto flex-1 p-4 sm:p-5 prose prose-sm max-w-none">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{

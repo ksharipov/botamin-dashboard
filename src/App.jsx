@@ -81,26 +81,26 @@ export default function App() {
   return (
     <div className="min-h-screen bg-lavender">
       {/* Header */}
-      <header className="bg-navy text-white px-6 py-4 flex items-center justify-between sticky top-0 z-40 shadow-lg">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-purple rounded-lg flex items-center justify-center font-bold text-sm">B</div>
-          <div>
-            <span className="font-semibold text-lg">Botamin Analytics</span>
-            <span className="ml-3 text-gray-400 text-sm">
+      <header className="bg-navy text-white px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between sticky top-0 z-40 shadow-lg gap-2">
+        <div className="flex items-center gap-2 min-w-0">
+          <div className="w-8 h-8 bg-purple rounded-lg flex items-center justify-center font-bold text-sm shrink-0">B</div>
+          <div className="min-w-0">
+            <div className="font-semibold text-base sm:text-lg leading-tight">Botamin Analytics</div>
+            <div className="text-gray-400 text-xs hidden sm:block truncate">
               {data.meta.date_from} — {data.meta.date_to} · {data.meta.total.toLocaleString('ru')} звонков
-            </span>
+            </div>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-1.5 shrink-0">
           <button
             onClick={() => setRulesOpen(true)}
-            className="text-sm text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 px-4 py-1.5 rounded-lg transition-colors"
+            className="text-xs sm:text-sm text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 px-2.5 sm:px-4 py-1.5 rounded-lg transition-colors whitespace-nowrap"
           >
             Алгоритм
           </button>
           <button
             onClick={() => setGuideOpen(true)}
-            className="text-sm text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 px-4 py-1.5 rounded-lg transition-colors"
+            className="text-xs sm:text-sm text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 px-2.5 sm:px-4 py-1.5 rounded-lg transition-colors whitespace-nowrap"
           >
             Инструкция
           </button>

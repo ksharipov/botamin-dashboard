@@ -27,17 +27,17 @@ function MetricCard({ title, todayVal, avgVal, goodDirection, format }) {
   }
 
   return (
-    <div className="card p-5 flex-1 min-w-0">
-      <p className="text-sm text-gray-500 font-medium mb-2">{title}</p>
-      <div className="flex items-end gap-2">
-        <span className="text-3xl font-bold text-navy">{fmt(todayVal)}</span>
+    <div className="card p-3 sm:p-5 flex-1 min-w-0">
+      <p className="text-xs sm:text-sm text-gray-500 font-medium mb-1 sm:mb-2 leading-tight">{title}</p>
+      <div className="flex items-end gap-1 sm:gap-2 flex-wrap">
+        <span className="text-xl sm:text-3xl font-bold text-navy">{fmt(todayVal)}</span>
         {d !== null && (
-          <span className={`text-sm font-semibold mb-1 ${arrowColor}`}>
+          <span className={`text-xs font-semibold mb-0.5 ${arrowColor}`}>
             {arrowIcon} {Math.abs(d).toFixed(1)}%
           </span>
         )}
       </div>
-      <p className="text-xs text-gray-400 mt-1">
+      <p className="text-xs text-gray-400 mt-1 hidden sm:block">
         vs {fmt(avgVal)} за всю неделю
       </p>
     </div>
@@ -50,7 +50,7 @@ export default function HealthBlock({ health }) {
   return (
     <section>
       <h2 className="text-lg font-semibold text-navy mb-3">Здоровье проекта</h2>
-      <div className="flex gap-4">
+      <div className="grid grid-cols-3 gap-2 sm:gap-4">
         <MetricCard
           title="Квалификация"
           todayVal={today.qualification_rate}

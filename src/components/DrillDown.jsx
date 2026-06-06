@@ -179,10 +179,10 @@ function DialogRow({ call, onClick }) {
       className="border-b border-gray-50 cursor-pointer hover:bg-gray-50 transition-colors"
       onClick={() => onClick(call)}
     >
-      <td className="py-2 pr-3 text-xs text-gray-500 font-mono">{call.phone || '—'}</td>
-      <td className="py-2 pr-3 text-xs text-gray-600">{date}</td>
-      <td className="py-2 pr-3 text-xs text-gray-600">{dur}</td>
-      <td className="py-2 pr-3 text-xs text-navy font-medium">{call.cause || '—'}</td>
+      <td className="py-2 pr-2 text-xs text-gray-500 font-mono hidden sm:table-cell">{call.phone || '—'}</td>
+      <td className="py-2 pr-2 text-xs text-gray-600 hidden sm:table-cell">{date}</td>
+      <td className="py-2 pr-2 text-xs text-gray-600">{dur}</td>
+      <td className="py-2 pr-2 text-xs text-navy font-medium">{call.cause || '—'}</td>
       <td className="py-2 text-xs">
         {call.cause_confidence != null ? (
           <span className={lowConf ? 'text-orange-500 font-medium' : 'text-gray-500'}>
@@ -317,11 +317,11 @@ function DialogsTab({ data, selectedStep, selectedCause, selectedCall, setSelect
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-gray-100">
-              <th className="text-left font-medium text-gray-500 py-2 pr-3">Телефон</th>
-              <th className="text-left font-medium text-gray-500 py-2 pr-3">Дата</th>
-              <th className="text-left font-medium text-gray-500 py-2 pr-3">Длит.</th>
-              <th className="text-left font-medium text-gray-500 py-2 pr-3">Причина</th>
-              <th className="text-left font-medium text-gray-500 py-2">Уверенность</th>
+              <th className="text-left font-medium text-gray-500 py-2 pr-2 hidden sm:table-cell">Телефон</th>
+              <th className="text-left font-medium text-gray-500 py-2 pr-2 hidden sm:table-cell">Дата</th>
+              <th className="text-left font-medium text-gray-500 py-2 pr-2">Длит.</th>
+              <th className="text-left font-medium text-gray-500 py-2 pr-2">Причина</th>
+              <th className="text-left font-medium text-gray-500 py-2">Уверен.</th>
             </tr>
           </thead>
           <tbody>
@@ -363,17 +363,17 @@ export default function DrillDown({
   return (
     <section className="card p-5 border-l-4 border-purple">
       {/* Context header */}
-      <div className="flex items-center justify-between mb-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-purple" />
-            <h3 className="font-semibold text-navy">{contextLabel}</h3>
+      <div className="flex items-start justify-between mb-4 gap-2">
+        <div className="min-w-0">
+          <div className="flex items-start gap-2">
+            <div className="w-2 h-2 rounded-full bg-purple shrink-0 mt-1.5" />
+            <h3 className="font-semibold text-navy text-sm sm:text-base leading-snug">{contextLabel}</h3>
           </div>
-          <p className="text-xs text-gray-400 mt-0.5">Детальный разбор</p>
+          <p className="text-xs text-gray-400 mt-0.5 ml-4">Детальный разбор</p>
         </div>
         <button
           onClick={onClose}
-          className="text-gray-400 hover:text-gray-600 text-lg leading-none w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100"
+          className="text-gray-400 hover:text-gray-600 text-lg leading-none w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 shrink-0"
         >
           ×
         </button>

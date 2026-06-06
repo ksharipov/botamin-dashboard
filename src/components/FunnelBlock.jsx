@@ -34,27 +34,26 @@ function FunnelBySteps({ steps, onSelectStep, selectedStep }) {
         return (
           <div
             key={s.step}
-            className={`flex items-center gap-4 p-3 rounded-lg cursor-pointer transition-colors hover:bg-gray-50 ${isSelected ? 'bg-purple-light ring-1 ring-purple' : ''}`}
+            className={`flex items-center gap-2 sm:gap-4 p-2 sm:p-3 rounded-lg cursor-pointer transition-colors hover:bg-gray-50 ${isSelected ? 'bg-purple-light ring-1 ring-purple' : ''}`}
             onClick={() => onSelectStep(s.step)}
           >
             {/* Step label */}
-            <div className="w-48 shrink-0">
-              <div className="flex items-center gap-1.5">
-                {isWorst && <span className="text-red-500 text-xs font-bold">▼</span>}
-                <span className="text-sm font-medium text-navy">{s.step}. {s.name}</span>
+            <div className="w-24 sm:w-48 shrink-0">
+              <div className="flex items-center gap-1">
+                {isWorst && <span className="text-red-500 text-xs font-bold shrink-0">▼</span>}
+                <span className="text-xs sm:text-sm font-medium text-navy leading-tight">{s.step}. {s.name}</span>
               </div>
               {s.description && (
-                <div className="text-xs text-gray-400 mt-0.5 leading-tight">{s.description}</div>
+                <div className="text-xs text-gray-400 mt-0.5 leading-tight hidden sm:block">{s.description}</div>
               )}
             </div>
 
             {/* Bar */}
-            <div className="flex-1 relative h-8">
+            <div className="flex-1 relative h-7">
               <div
-                className="absolute inset-y-0 left-0 rounded-md flex items-center pl-2"
+                className="absolute inset-y-0 left-0 rounded-md"
                 style={{ width: `${barWidth}%`, backgroundColor: barColor, minWidth: '4px', opacity: 0.85 }}
               />
-              <div className="absolute inset-y-0 left-0 w-full" />
             </div>
 
             {/* Metrics */}
@@ -62,13 +61,19 @@ function FunnelBySteps({ steps, onSelectStep, selectedStep }) {
               <div className="text-sm font-semibold text-navy">
                 {s.count.toLocaleString('ru')}
               </div>
-              <div className="text-xs text-gray-400">
+              <div className="text-xs text-gray-400 hidden sm:block">
                 {(s.from_start * 100).toFixed(1)}% от начала
                 {s.from_prev !== null && (
                   <span className={isWorst ? 'text-red-500 font-semibold' : ''}>
                     {' · '}{(s.from_prev * 100).toFixed(1)}% от пред.
                   </span>
                 )}
+              </div>
+              <div className="text-xs sm:hidden">
+                {s.from_prev !== null
+                  ? <span className={isWorst ? 'text-red-500 font-semibold' : 'text-gray-400'}>{(s.from_prev * 100).toFixed(0)}%</span>
+                  : <span className="text-gray-400">{(s.from_start * 100).toFixed(0)}%</span>
+                }
               </div>
             </div>
           </div>
