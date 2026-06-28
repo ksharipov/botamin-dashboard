@@ -55,7 +55,7 @@ export default function AboutModal({ onClose }) {
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between p-4 sm:p-5 border-b border-gray-100">
-          <h2 className="text-base sm:text-lg font-semibold text-navy">Об авторе</h2>
+          <h2 className="text-base sm:text-lg font-semibold text-navy">Аналитика звонков Botamin</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 text-2xl leading-none w-9 h-9 flex items-center justify-center rounded-lg hover:bg-gray-100"
@@ -65,15 +65,11 @@ export default function AboutModal({ onClose }) {
         </div>
 
         <div className="overflow-y-auto flex-1 p-4 sm:p-5 space-y-5">
-          <p className="text-sm text-gray-700 leading-relaxed">
-            Этот дашборд для аналитиков проекта Botamin.
-          </p>
-
           <button
             onClick={handleContactClick}
             className="w-full bg-navy text-white py-2.5 rounded-xl font-medium text-sm hover:bg-navy/90 transition-colors"
           >
-            Contact me
+            Контакт
           </button>
 
           <div className="relative">

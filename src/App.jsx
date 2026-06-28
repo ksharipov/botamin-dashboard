@@ -114,7 +114,7 @@ export default function App() {
             }}
             className="text-xs sm:text-sm bg-amber-400 hover:bg-amber-300 text-navy font-semibold px-2.5 sm:px-4 py-1.5 rounded-lg transition-colors whitespace-nowrap"
           >
-            Об авторе
+            Контакт
           </button>
         </div>
       </header>
