@@ -6,6 +6,7 @@ import ABTestBlock from './components/ABTestBlock.jsx'
 import RecoBlock from './components/RecoBlock.jsx'
 import GuideModal from './components/GuideModal.jsx'
 import RulesModal from './components/RulesModal.jsx'
+import AboutModal from './components/AboutModal.jsx'
 
 export default function App() {
   const [data, setData] = useState(null)
@@ -28,6 +29,7 @@ export default function App() {
   // Guide modal
   const [guideOpen, setGuideOpen] = useState(false)
   const [rulesOpen, setRulesOpen] = useState(false)
+  const [aboutOpen, setAboutOpen] = useState(false)
 
   useEffect(() => {
     fetch('/data.json')
@@ -104,6 +106,16 @@ export default function App() {
           >
             Инструкция
           </button>
+          <button
+            onClick={() => {
+              window.dataLayer = window.dataLayer || []
+              window.dataLayer.push({ event: 'about_modal_open' })
+              setAboutOpen(true)
+            }}
+            className="text-xs sm:text-sm bg-amber-400 hover:bg-amber-300 text-navy font-semibold px-2.5 sm:px-4 py-1.5 rounded-lg transition-colors whitespace-nowrap"
+          >
+            Об авторе
+          </button>
         </div>
       </header>
 
@@ -153,6 +165,7 @@ export default function App() {
       {/* Guide Modal */}
       {guideOpen && <GuideModal onClose={() => setGuideOpen(false)} />}
       {rulesOpen && <RulesModal onClose={() => setRulesOpen(false)} />}
+      {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
     </div>
   )
 }
