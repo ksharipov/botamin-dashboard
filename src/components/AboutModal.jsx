@@ -66,14 +66,14 @@ export default function AboutModal({ onClose }) {
 
         <div className="overflow-y-auto flex-1 p-4 sm:p-5 space-y-5">
           <p className="text-sm text-gray-700 leading-relaxed">
-            Этот дашборд — тестовое задание Product Owner: полный цикл от сырых данных до продуктовой аналитики с A/B-тестами и рекомендациями. Буду рад вашей обратной связи и вопросам о проекте.
+            Этот дашборд для аналитиков проекта Botamin.
           </p>
 
           <button
             onClick={handleContactClick}
             className="w-full bg-navy text-white py-2.5 rounded-xl font-medium text-sm hover:bg-navy/90 transition-colors"
           >
-            Contact Me in Telegram
+            Contact me
           </button>
 
           <div className="relative">
@@ -100,7 +100,7 @@ export default function AboutModal({ onClose }) {
                   required
                   value={form.who}
                   onChange={e => setForm(f => ({ ...f, who: e.target.value }))}
-                  placeholder="PM в e-commerce, HR в стартапе..."
+                  placeholder=""
                   className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-purple"
                 />
               </div>
