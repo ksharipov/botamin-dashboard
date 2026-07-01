@@ -29,8 +29,8 @@ api/
 | Variable | Описание |
 |---|---|
 | `TELEGRAM_BOT_TOKEN` | токен бота от @BotFather |
-| `TELEGRAM_CHAT_ID` | числовой ID чата владельца с ботом |
-| `TELEGRAM_CONTACT_URL` | `https://t.me/ks2029` — скрыт от фронтенда |
+| `TELEGRAM_CHAT_ID` | числовой ID чата владельца |
+| `TELEGRAM_CONTACT_URL` | `https://t.me/YOUR_TG_ID` — скрыт от фронтенда |
 
 ## Analytics
 
@@ -50,14 +50,6 @@ api/
 
 ### Целевая воронка в GA4
 `page_view` → `about_modal_open` → `contact_me_click` ИЛИ `feedback_form_success`
-
-### Настройка GTM (ещё не сделано)
-Нужно в GTM создать:
-1. **Trigger** → Custom Event, regex: `about_modal_open|contact_me_click|feedback_form_submit|feedback_form_success|feedback_form_error`
-2. **Tag** → GA4 Event, Event Name: `{{Event}}`, firing on trigger выше
-3. Опубликовать контейнер
-
-До этого кастомные события в GA4 не отображаются (застревают в GTM).
 
 ## Паттерн модальных окон
 ```jsx
